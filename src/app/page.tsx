@@ -1,5 +1,4 @@
 import MainNews from "@/components/MainNews";
-import Marquee from "@/components/Marquee";
 import MostRead from "@/components/MostRead";
 import NewsCard from "@/components/NewsCard";
 
@@ -30,7 +29,7 @@ export  default async function Home() {
   console.log(otherSection);
   return (
     <div>
-      <Marquee></Marquee>
+      
       <div className="container mx-auto">
         <div className="grid grid-cols-12 gap-3 mt-2">
           {/* news section */}
