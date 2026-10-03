@@ -10,8 +10,6 @@ interface News{
 const MainNews = ({ news }:{news:News[]}) => {
     const [firstNews,...otherNews]=news
     // const otherNews=news.slice(1)
-  console.log(firstNews,"first news");
-  console.log(otherNews,"others news");
   return (
     <div className="flex gap-4">
       <div className="card bg-base-100 w-96 shadow-sm">
@@ -32,7 +30,7 @@ const MainNews = ({ news }:{news:News[]}) => {
        
         </div>
       </div>
-      <div className="grid gap-4">
+      <div className="grid gap-4 border border-gray-200">
         {otherNews.slice(0,4).map((other)=><div className="card border border-gray-200 py-4 px-2" key={other.id}>
              <p className="text-red-600 font-semibold">{other.category}</p>
             <div>{other.title}</div>
