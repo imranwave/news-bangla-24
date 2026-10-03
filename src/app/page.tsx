@@ -1,12 +1,23 @@
+import MainNews from "@/components/MainNews";
 import Marquee from "@/components/Marquee";
-import Image from "next/image";
-
-export default function Home() {
+export  default async function Home() {
+  const res=await fetch('https://news-api-v2.vercel.app/api/news/sections');
+  const data=await res.json();
+  const section=data.data;
+  const mainNews=section[0].articles
   return (
-    
     <div>
       <Marquee></Marquee>
-     ঢাকার হযরত শাহজালাল আন্তর্জাতিক বিমানবন্দরে বিমানবন্দরে বিশৃঙ্খলা সৃষ্টি এবং দায়িত্বরতদের হুমকি দেওয়ার অভিযোগে দায়ের করা একটি মামলায় মেজর (অব.) আখতারুজ্জামানকে গ্রেফতার করা হয়েছে। সেদিন আসলে কী ঘটেছিল বিমানবন্দরে, ভাইরাল হওয়া ভিডিও নিয়ে কেন এত আলোচনা-সমালোচনা?
+      <div className="container mx-auto">
+        <div className="grid grid-cols-12">
+          {/* news section */}
+          <div className="col-span-9">
+            <MainNews news={mainNews}></MainNews>
+          </div>
+          {/* most read section */}
+          <div className="col-span-3 bg-amber-200 "></div>
+        </div>
+      </div>
     </div>
   );
 }
