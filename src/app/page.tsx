@@ -1,6 +1,7 @@
 import MainNews from "@/components/MainNews";
 import MostRead from "@/components/MostRead";
 import NewsCard from "@/components/NewsCard";
+import Link from "next/link";
 
 
 interface IArticle {
@@ -26,13 +27,13 @@ export  default async function Home() {
   const section=data.data;
   const mainNews=section[0].articles
   const otherSection:IOtherSection[]=section.slice(1)
-  console.log(otherSection);
   return (
     <div>
       
       <div className="container mx-auto">
         <div className="grid grid-cols-12 gap-3 mt-2">
           {/* news section */}
+         
           <div className="col-span-9">
             <MainNews news={mainNews}></MainNews>
             {
@@ -48,6 +49,7 @@ export  default async function Home() {
               </div>)
             }
           </div>
+     
           {/* most read section */}
           <div className="col-span-3">
             <div>
